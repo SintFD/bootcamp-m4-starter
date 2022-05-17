@@ -9,10 +9,14 @@ import "./common.css";
 function App() {
   return (
     <div className="app">
-      <Route path="/" exact component={MainPage} />
-      <Route path="/list/:id" exact component={ListPage} />
+      <Route path="/MainPage">
+        <MainPage />
+      </Route>
+      <Route path="/list/:id">
+        <ListPage />
+      </Route>
     </div>
   );
-};
+}
 
 export default App;
