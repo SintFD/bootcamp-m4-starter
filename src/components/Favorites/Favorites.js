@@ -29,8 +29,9 @@ function Favorites() {
         {movies &&
           movies.map((item) => {
             return (
-              <li key={item.imdbID}>
+              <li className="favorite__list" key={item.imdbID}>
                 {item.Title} ({item.Year})
+                <button>&#10006;</button>
               </li>
             );
           })}
