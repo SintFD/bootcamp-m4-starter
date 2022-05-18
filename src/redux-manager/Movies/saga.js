@@ -6,10 +6,9 @@ import { fetchFilmName } from "../REST";
 
 function* workerCart(action) {
   try {
-    const data = yield call(fetchFilmName, action.payload);
-    // console.log(data);
+    const data = yield call(fetchFilmName, action.payload); 
     yield put(getMovieAction(data));
-    yield select(getFilmResults);
+    // yield select(getFilmResults);
   } catch (err) {
     console.error("ERROR", err);
   }

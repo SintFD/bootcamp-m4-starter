@@ -31,3 +31,7 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+.gray{
+    background-color: gray;
+}

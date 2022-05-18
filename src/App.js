@@ -9,7 +9,7 @@ import "./common.css";
 function App() {
   return (
     <div className="app">
-      <Route path="/MainPage">
+      <Route exact path="/">
         <MainPage />
       </Route>
       <Route path="/list/:id">
