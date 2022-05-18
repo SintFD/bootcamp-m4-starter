@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Favorites.css";
 import { useSelector } from "react-redux";
@@ -7,21 +7,9 @@ import { setFilmsInList } from "../../redux-manager/MovieItem/selector";
 function Favorites() {
   const [title, setTitle] = useState();
   const [clicked, setClicked] = useState(false);
-  const [movies, setMovies] =
-    useState();
-    //   [
-    //   { imdbID: "tt0068646", title: "The Godfather", year: 1972 },
-    //   { imdbID: "tt0068646", title: "The Godfather", year: 1972 },
-    // ]
 
-  const setFilmInList = useSelector(setFilmsInList);
-  // const a = useSelector((state)=>state);
-
-  useEffect(() => {
-    setMovies(setFilmInList);
-    console.log(setFilmInList);
-  }, [setFilmInList]);
-
+  const movies = useSelector(setFilmsInList);
+  
   const changeValue = (e) => {
     setTitle(e.target.value);
   };

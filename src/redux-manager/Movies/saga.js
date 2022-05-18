@@ -8,7 +8,6 @@ function* workerCart(action) {
   try {
     const data = yield call(fetchFilmName, action.payload); 
     yield put(getMovieAction(data));
-    // yield select(getFilmResults);
   } catch (err) {
     console.error("ERROR", err);
   }

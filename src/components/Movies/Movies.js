@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { getFilmResults } from "../../redux-manager/Movies/selector";
 import MovieItem from "../MovieItem/MovieItem";
 import "./Movies.css";
 
 function Movies() {
-  const find = useSelector(getFilmResults);
-
-  const [movies, setMovies] = useState();
-
-  useEffect(() => {
-    setMovies(find);
-  }, [find]);
+  const movies = useSelector(getFilmResults);
 
   return (
     <ul className="movies">
