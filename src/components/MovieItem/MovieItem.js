@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieItem.css";
 import { useDispatch } from "react-redux";
-import {saveInListAction} from "../../redux-manager/MovieItem/action"
+import {saveInListAction} from "../../redux-manager/Favorites/action"
 
 function MovieItem(props) {
   const { Title, Year, Poster } = props;

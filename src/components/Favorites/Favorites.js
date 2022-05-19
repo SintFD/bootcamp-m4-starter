@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Favorites.css";
 import { useSelector } from "react-redux";
-import { setFilmsInList } from "../../redux-manager/MovieItem/selector";
+import { setFilmsInList } from "../../redux-manager/Favorites/selector";
 
 function Favorites() {
   const [title, setTitle] = useState();
   const [clicked, setClicked] = useState(false);
 
   const movies = useSelector(setFilmsInList);
-  
+
   const changeValue = (e) => {
     setTitle(e.target.value);
   };
@@ -30,8 +30,7 @@ function Favorites() {
           movies.map((item) => {
             return (
               <li className="favorite__list" key={item.imdbID}>
-                {item.Title} ({item.Year})
-                <button>&#10006;</button>
+                {item.Title} ({item.Year})<button>&#10006;</button>
               </li>
             );
           })}
@@ -42,8 +41,8 @@ function Favorites() {
         <button
           onClick={saveFilms}
           type="button"
-          className={`favorites__save ${!(title && movies) && "gray"}`}
-          disabled={!(title && movies)}
+          className={`favorites__save ${!(title && movies[0]) && "gray"}`}
+          disabled={!(title && movies[0])}
         >
           Сохранить список
         </button>
