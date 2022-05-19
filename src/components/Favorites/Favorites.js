@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Favorites.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setFilmsInList } from "../../redux-manager/Favorites/selector";
+import { deletFilmAction } from "../../redux-manager/Favorites/action";
 
 function Favorites() {
   const [title, setTitle] = useState();
@@ -18,6 +19,13 @@ function Favorites() {
     setClicked(true);
   };
 
+  const dispatch = useDispatch();
+
+  const deletFilm = (e) => {
+    dispatch(deletFilmAction(e.target.id));
+    console.log(e.target.id);
+  };
+
   return (
     <div className="favorites">
       <input
@@ -30,7 +38,14 @@ function Favorites() {
           movies.map((item) => {
             return (
               <li className="favorite__list" key={item.imdbID}>
-                {item.Title} ({item.Year})<button>&#10006;</button>
+                {item.Title} ({item.Year})
+                <button
+                  onClick={deletFilm}
+                  id={item.imdbID}
+                  className="delet-class"
+                >
+                  &#10006;
+                </button>
               </li>
             );
           })}
