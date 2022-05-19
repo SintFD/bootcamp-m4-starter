@@ -1,13 +1,13 @@
 import { GET_MOVIE } from "../constants";
 
 const initialValues = {
-  filmObj: [],
+  movies: [],
 };
 
 const movieReducer = (state = initialValues, action) => {
   switch (action.type) {
     case GET_MOVIE:
-      return { ...state, filmObj: [action.payload] };
+      return { ...state, movies: action.payload };
     default:
       return state;
   }

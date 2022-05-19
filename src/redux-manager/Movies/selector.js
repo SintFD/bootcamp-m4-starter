@@ -1,1 +1,1 @@
-export const getFilmResults = (state) => state.movieReducer.filmObj[0]?.Search;
+export const getFilmResults = (state) => state.movieReducer.movies;

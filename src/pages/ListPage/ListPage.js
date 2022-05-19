@@ -22,7 +22,7 @@ function ListPage(props) {
         {movies.map((item) => {
           return (
             <li key={item.imdbID}>
-              <a href="https://www.imdb.com/title/tt0068646/" target="_blank">
+              <a href="https://www.imdb.com/title/tt3498820/" target="_blank">
                 {item.title} ({item.year})
               </a>
             </li>

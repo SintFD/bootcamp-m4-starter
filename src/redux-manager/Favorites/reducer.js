@@ -2,6 +2,7 @@ import { SAVE_IN_LIST, DELET_FILM } from "../constants";
 
 const initialValues = {
   filmFavorits: [],
+  favoritListID: null
 };
 
 const movieItemReducer = (state = initialValues, action) => {
