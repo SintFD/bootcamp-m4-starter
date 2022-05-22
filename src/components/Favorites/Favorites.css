@@ -31,3 +31,14 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+.gray{
+    background-color: gray;
+}
+
+.favorite__list{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    align-items: center;
+}
