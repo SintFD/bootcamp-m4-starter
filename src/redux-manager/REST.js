@@ -1,7 +1,3 @@
-
-
-
-
 export const fetchFilmName = async (filmName) => {
   const response = await fetch(
     `http://www.omdbapi.com/?s=${filmName}&apikey=b14a1940`
@@ -10,18 +6,6 @@ export const fetchFilmName = async (filmName) => {
 
   return data;
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const sendFavoritFilms = async (favoritListName, filmList) => {
   const info = {
@@ -45,9 +29,18 @@ export const sendFavoritFilms = async (favoritListName, filmList) => {
   return data;
 };
 
-export const getFavoritList = async (filmName) => {
+export const getFavoritFilmsId = async (listId) => {
   const response = await fetch(
-    `http://www.omdbapi.com/?s=${filmName}&apikey=b14a1940`
+    `https://acb-api.algoritmika.org/api/movies/list/${listId}`
+  );
+  const data = await response.json();
+
+  return data;
+};
+
+export const getFavoritFilmInfo = async (filmId) => {
+  const response = await fetch(
+    `http://www.omdbapi.com/?i=${filmId}&apikey=b14a1940`
   );
   const data = await response.json();
 

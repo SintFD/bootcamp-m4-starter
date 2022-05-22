@@ -1,1 +1,1 @@
-export const setFilmsInList = (state) => state.movieItemReducer.filmFavorits;
+export const setFilmsInList = (state) => state.favoritesReducer.filmFavorits;

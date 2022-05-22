@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { getFavoritFilmsIdAction } from "../../redux-manager/ListPage/action";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllFilms } from "../../redux-manager/ListPage/selector";
 import "./ListPage.css";
 
-function ListPage(props) {
-  const [movies, setMovies] = useState([
-    { title: "The Godfather", year: 1972, imdbID: "tt0068646" },
-  ]);
-
-  const { id } = useParams();
+function ListPage() {
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(id);
-    // TODO: запрос к сервер на получение списка
-    // TODO: запросы к серверу по всем imdbID
+    dispatch(getFavoritFilmsIdAction());
   }, []);
+  const movies = useSelector(getAllFilms);
 
   return (
     <div className="list-page">
@@ -22,8 +19,11 @@ function ListPage(props) {
         {movies.map((item) => {
           return (
             <li key={item.imdbID}>
-              <a href="https://www.imdb.com/title/tt3498820/" target="_blank">
-                {item.title} ({item.year})
+              <a
+                href={`https://www.imdb.com/title/${item.imdbID}/`}
+                target="_blank"
+              >
+                {item.Title} ({item.Year})
               </a>
             </li>
           );

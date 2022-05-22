@@ -2,10 +2,9 @@ import { SAVE_IN_LIST, DELET_FILM } from "../constants";
 
 const initialValues = {
   filmFavorits: [],
-  favoritListID: null
 };
 
-const movieItemReducer = (state = initialValues, action) => {
+const favoritesReducer = (state = initialValues, action) => {
   const isElementExist = state.filmFavorits.some(
     (el) => el?.imdbID === action.payload?.imdbID
   );
@@ -17,6 +16,7 @@ const movieItemReducer = (state = initialValues, action) => {
         filmFavorits: [...state.filmFavorits, action.payload],
       };
     case DELET_FILM:
+      console.log(state);
       return {
         ...state,
         filmFavorits: [
@@ -31,4 +31,4 @@ const movieItemReducer = (state = initialValues, action) => {
   }
 };
 
-export default movieItemReducer;
+export default favoritesReducer;
